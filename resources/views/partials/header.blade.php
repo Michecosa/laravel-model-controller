@@ -1,4 +1,5 @@
-<header>
-  <h1>Header</h1>
-  <hr>
+<header class="bg-primary text-white p-4">
+  <div class="container">
+    <h1>I miei film su Laravel</h1>
+  </div>
 </header>

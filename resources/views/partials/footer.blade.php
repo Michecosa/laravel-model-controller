@@ -1,4 +1,6 @@
 <footer>
   <hr>
-  <h1>Footer</h1>
+  <div class="container">
+    <p>Un footer bellissimo</p>
+  </div>
 </footer>
