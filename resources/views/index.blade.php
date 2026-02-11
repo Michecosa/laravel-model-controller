@@ -3,5 +3,9 @@
 @section('title', 'I miei film su Laravel')
 
 @section('main-content')
-  <h1>Funziona?</h1>
+  <ul>
+    @foreach ($movies as $movie)
+        <li>{{$movie}}</li>
+    @endforeach
+  </ul>
 @endsection
