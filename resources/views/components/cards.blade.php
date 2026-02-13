@@ -1,23 +1,39 @@
 <div class="card h-100 shadow-sm border-0">
-  <div class="card-body d-flex flex-column">
+  <div class="card-body d-flex flex-column p-0">
     <div class="flex-grow-1">
-      <h4 class="card-title mb-1 fw-bold">{{ $movieTitle }}</h4>
-      <p class="card-text small text-muted mb-3 italic">
-        ({{ $movieOriginalTitle }})
-      </p>
-      <div class="d-flex flex-column gap-2 mb-3">
-        <span class="card-text small text-muted mb-3 italic">
-          {{ $movieNationality }}
-        </span>
-        <span class="small text-secondary">
-          {{ $movieDate }}
-        </span>
+      <div class="p-3">
+        <h4 class="card-title mb-1 fw-bold">{{ $movieTitle }}</h4>
+        <p class="card-text small text-muted mb-3 italic">
+          ({{ $movieOriginalTitle }})
+        </p>
+        <div class="d-flex flex-column gap-2 mb-3">
+          <span class="card-text small text-muted mb-3 italic">
+            {{ $movieNationality }}
+          </span>
+          <span class="small text-secondary">
+            {{ $movieDate }}
+          </span>
+        </div>
       </div>
     </div>
 
     <div class="mt-2">
-      <div class="p-2 rounded-bottom text-end" style="background-color: #e2eeff;">
-          <span class="text-dark small"><span class="fw-bold fs-5">{{ $movieVote }}</span>/10</span>
+      <div class="py-2 px-3 rounded-bottom" style="background-color: #e2eeff;">
+          <span class="text-dark small">
+              <span class="text-primary">
+                @for ($i = 0; $i < 10; $i++)
+                  @php $voteValue = (float) $movieVote->toHtml(); @endphp
+                  @if ($i < floor($voteValue))
+                    <i class="bi bi-star-fill"></i>
+                  @elseif ($i < ceil($voteValue))
+                    <i class="bi bi-star-half"></i>
+                  @else
+                    <i class="bi bi-star"></i>
+                  @endif
+                @endfor
+              </span>
+            </span>
+          <span class="d-block"><span class="fw-bold fs-5">{{ $movieVote }}</span>/10</span>
       </div>
     </div>
   </div>
